@@ -1,0 +1,22 @@
+# Template file for 'pspp'
+pkgname=pspp
+version=1.2.0
+revision=1
+#wrksrc=
+#create_wrksrc=yes
+#archs="i686 x86_64"
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="gsl spread-sheet-widget pkg-config gtk+3-devel glib-devel readline-devel perl libreadline8 gsl-devel gtksourceview-devel gettext texinfo tar"
+makedepends="spread-sheet-widget"
+depends="gsl spread-sheet-widget readline tar"
+short_desc="PSPP is a program for statistical analysis of sampled data. It is a replacement for the proprietary program SPSS"
+maintainer="Domenico Martella <domenico.martella@alcacoop.it>"
+license="GPL-3.0-or-later"
+homepage="https://www.gnu.org/software/pspp/"
+distfiles="${GNU_SITE}/${pkgname}/${pkgname}-${version}.tar.gz"
+checksum=a50e437974cff8d57f41ba87026509c9c383474e52717944ea6565e6ff11f71e

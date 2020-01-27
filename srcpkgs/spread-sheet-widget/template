@@ -1,0 +1,24 @@
+# Template file for 'spread-sheet-widget'
+pkgname=spread-sheet-widget
+version=0.3
+revision=1
+#wrksrc=
+#create_wrksrc=yes
+#archs="i686 x86_64"
+build_style=gnu-configure
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+#hostmakedepends="pkg-config gtk+3-devel glib-devel readline-devel perl libreadline8 gsl-devel"
+hostmakedepends="pkg-config gtk+3-devel glib-devel"
+makedepends=""
+depends=""
+shlib_provides="libspread-sheet-widget.so.0"
+short_desc="GNU sww alpha"
+maintainer="Domenico Martella <domenico.martella@alcacoop.it>"
+license="GPL-3.0-or-later"
+homepage="https://www.gnu.org/software/ssw/"
+distfiles="http://alpha.gnu.org/gnu/ssw/spread-sheet-widget-0.3.tar.gz"
+checksum=1e2dc2c6fb8f3718188cec635b6601ba453b4bb3683ccc67cddef825a0f723c1
