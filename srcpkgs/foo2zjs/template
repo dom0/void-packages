@@ -1,0 +1,46 @@
+# Template file for 'foo2zjs'
+pkgname=foo2zjs
+version=20190909
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=gnu-makefile
+#configure_args=""
+# make_build_args=""
+# make_build_args="PREFIX=/usr DESTDIR=/usr"
+# make_install_args="PREFIX=/usr DESTDIR=/usr"
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends="ghostscript bc cups-devel cups-filters foomatic-db foomatic-db-engine foomatic-db-nonfree"
+depends="cups-filters ghostscript foomatic-db"
+short_desc="A linux printer driver for ZjStream protocol"
+maintainer="Domenico Martella <domenico.martella@alcacoop.it>"
+license="GPL-3.0-or-later"
+homepage="http://foo2zjs.rkkda.com/"
+distfiles="http://foo2zjs.rkkda.com/foo2zjs.tar.gz"
+checksum=deb9d5d5a45dfae1329a5027ce0ae9578b1ef29db84fdfe61ef79ceafb7b8032
+
+post_extract() {
+	mv ${XBPS_BUILDDIR}/foo2zjs ${XBPS_BUILDDIR}/foo2zjs-${version}
+}
+
+pre_build() {
+	sed -i 's|PREFIX=/usr/local|PREFIX=/usr|' Makefile
+  sed -i 's|UDEVBIN=$(DESTDIR)/bin/|UDEVBIN=/usr/bin|' Makefile
+  
+  mkdir -pv $DESTDIR/{etc/udev/rules.d,lib/udev/rules.d,etc/hotplug/usb}
+  mkdir -pv $DESTDIR/usr/share/foomatic/db/source/{opt,printer,driver}
+  mkdir -pv $DESTDIR/usr/share/cups/model
+  mkdir -pv $DESTDIR/usr//share/{applications,pixmaps}
+}
+
+do_build() {
+  make
+}
+
+do_install() {
+  # DESTDIR="$DESTDIR" make install-prog install-icc2ps install-extra install-crd install-foo install-ppd install-gui install-desktop install-filter install-man install-doc install-aa
+  DESTDIR="$DESTDIR" make install
+}
