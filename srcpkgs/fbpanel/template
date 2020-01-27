@@ -1,0 +1,27 @@
+# Template file for 'fbpanel'
+pkgname=fbpanel
+version=7.0
+revision=1
+#wrksrc=
+#create_wrksrc=yes
+#archs="i686 x86_64"
+build_style=configure
+configure_args="--libexecdir /usr/lib/fbpanel --prefix /usr --mandir /usr/share/man/man1"
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends="pkgconf python"
+makedepends="alsa-lib-devel gtk+-devel"
+depends=""
+short_desc="Lightweight, NETWM compliant desktop panel"
+maintainer="Domenico Martella <domenico.martella@alcacoop.it>"
+license="MIT"
+homepage="http://aanatoly.github.io/fbpanel/"
+distfiles="https://github.com/aanatoly/fbpanel/archive/${version}.tar.gz"
+checksum=711570954f8f99235d6afb7ec3226dede20b832eb712a5bd00e4f793b75ac5bb
+
+
+post_install() {
+	vlicense COPYING
+}
