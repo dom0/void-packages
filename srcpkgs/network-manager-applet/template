@@ -4,12 +4,12 @@ version=1.8.24
 revision=1
 build_style=gnu-configure
 build_helper="gir"
-configure_args="--disable-static --without-selinux $(vopt_enable gir introspection)"
+configure_args="--disable-static --with-appindicator=yes --without-selinux $(vopt_enable gir introspection)"
 hostmakedepends="dbus-glib-devel glib-devel intltool pkg-config"
 makedepends="ModemManager-devel NetworkManager-devel iso-codes jansson-devel
  libgnome-keyring-devel libgudev-devel libnotify-devel libsecret-devel
- polkit-devel mobile-broadband-provider-info"
-depends="NetworkManager hicolor-icon-theme iso-codes"
+ polkit-devel mobile-broadband-provider-info libappindicator-devel-12.10.0_3 libdbusmenu-gtk3-devel-16.04.0_4"
+depends="NetworkManager hicolor-icon-theme iso-codes libappindicator"
 short_desc="NetworkManager panel applet for GNOME"
 maintainer="Enno Boland <gottox@voidlinux.org>"
 license="GPL-2.0-or-later"
