@@ -1,0 +1,26 @@
+# Template file for 'wdisplays'
+pkgname=wdisplays
+version=ba331ca
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=meson
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends="wayland-devel pkg-config wayland-protocols glib-devel gtk+3-devel"
+depends="wayland wayland-protocols"
+short_desc="Graphical application for configuring displays in Wayland compositors"
+maintainer="Domenico Martella <domenico.martella@alcacoop.it>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/cyclopsian/wdisplays"
+distfiles="https://github.com/cyclopsian/wdisplays/archive/master.zip"
+checksum=c256439c2f6fc18499bb55235641269138a1f676adc3b349f7b840604c68d432
+
+post_extract() {
+	mv ${XBPS_BUILDDIR}/wdisplays-master ${XBPS_BUILDDIR}/wdisplays-${version}
+}
