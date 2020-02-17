@@ -1,0 +1,27 @@
+# Template file for 'redshift'
+pkgname=redshift-wlr
+version=1.12
+revision=1
+build_style=gnu-configure
+configure_args="--disable-gui --enable-wayland"
+hostmakedepends="wget git autoconf automake libtool tar gettext-devel intltool pkg-config python3-devel wayland-devel wayland-scanner++ libwaylandpp-devel wlroots-devel glib-devel sway"
+makedepends="libXxf86vm-devel libdrm-devel intltool"
+depends=""
+short_desc="Adjusts the color temperature of your screen to your surroundings"
+maintainer="Frank Steinborn <steinex@nognu.de>"
+license="GPL-3"
+homepage="https://github.com/minus7/redshift/"
+# distfiles="https://github.com/minus7/redshift/archive/v${version}.tar.gz"
+checksum=dd816df79765f87a0838b1568fbc40c3e8bdb4aef0e77712c85623afe34a29ad
+
+do_fetch() {
+  git clone -b wayland https://github.com/minus7/redshift.git redshift-wlr-${version}
+}
+
+# post_extract() {
+	# mv ${XBPS_BUILDDIR}/redshift-${version} ${XBPS_BUILDDIR}/redshift-wlr-${version}
+# }
+
+pre_configure() {
+  ./bootstrap
+}
