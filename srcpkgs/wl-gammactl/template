@@ -1,0 +1,25 @@
+# Template file for 'xdg-desktop-portal-wlr'
+pkgname=wl-gammactl
+version=611846ce8
+revision=1
+#archs="i686 x86_64"
+#wrksrc=
+#create_wrksrc=yes
+build_style=meson
+#configure_args=""
+#make_build_args=""
+#make_install_args=""
+#conf_files=""
+#make_dirs="/var/log/dir 0755 root root"
+hostmakedepends=""
+makedepends="git pkg-config scdoc wayland-devel wayland-protocols wlroots-devel gtk+3-devel xcb-util-devel xcb-util-errors-devel xcb-util-wm-devel cmake glib-devel"
+depends="sway"
+short_desc="Portal backend service for Flatpak using wlroots"
+maintainer="Domenico Martella <domenico.martella@alcacoop.it>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/mischw/wl-gammactl"
+
+#wsksrc=${pkgname}-${}
+do_fetch(){
+  git clone https://github.com/mischw/wl-gammactl.git ${wrksrc}
+}
