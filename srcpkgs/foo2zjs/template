@@ -1,6 +1,6 @@
 # Template file for 'foo2zjs'
 pkgname=foo2zjs
-version=20190909
+version=20200601
 revision=1
 #archs="i686 x86_64"
 #wrksrc=
@@ -12,15 +12,17 @@ build_style=gnu-makefile
 # make_install_args="PREFIX=/usr DESTDIR=/usr"
 #conf_files=""
 #make_dirs="/var/log/dir 0755 root root"
-hostmakedepends=""
-makedepends="ghostscript bc cups-devel cups-filters foomatic-db foomatic-db-engine foomatic-db-nonfree"
-depends="cups-filters ghostscript foomatic-db"
+hostmakedepends="ghostscript bc cups-devel cups-filters foomatic-db foomatic-db-engine foomatic-db-nonfree"
+#makedepends="ghostscript bc cups-devel cups-filters foomatic-db foomatic-db-engine foomatic-db-nonfree"
+#makedepends="cups-devel cups-filters foomatic-db foomatic-db-engine foomatic-db-nonfree"
+#depends="cups-filters ghostscript foomatic-db"
+depends="cups-filters foomatic-db"
 short_desc="A linux printer driver for ZjStream protocol"
 maintainer="Domenico Martella <domenico.martella@alcacoop.it>"
 license="GPL-3.0-or-later"
 homepage="http://foo2zjs.rkkda.com/"
 distfiles="http://foo2zjs.rkkda.com/foo2zjs.tar.gz"
-checksum=deb9d5d5a45dfae1329a5027ce0ae9578b1ef29db84fdfe61ef79ceafb7b8032
+checksum=65e9436e090252d8d61eac47b371226c6ef3facb56b1342a5d7cef41779c8a51
 
 post_extract() {
 	mv ${XBPS_BUILDDIR}/foo2zjs ${XBPS_BUILDDIR}/foo2zjs-${version}
